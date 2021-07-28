@@ -138,7 +138,12 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'horse_wins' =>[
+            'lte:' => 'Horse wins cannot be greather than his races'
+        ]
+
     ],
+ 
 
     /*
     |--------------------------------------------------------------------------

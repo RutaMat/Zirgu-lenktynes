@@ -12,17 +12,17 @@
                  <form method="POST" action="{{route('better.store')}}">
                      <div class="form-group">
                            <label> Vardas: </label>
-                           <input type="text" name="better_name" class="form-control" >
+                           <input type="text" name="better_name" class="form-control" value="{{old('better_name')}}">
                            <small class="form-text text-muted">Lažybininko vardas</small>
                      </div>
                      <div class="form-group">
                            <label> Pavardė: </label>
-                           <input type="text" name="better_surname" class="form-control" >
+                           <input type="text" name="better_surname" class="form-control"value="{{old('better_surname')}}" >
                            <small class="form-text text-muted">Lažybininko pavardė</small>
                      </div>
                      <div class="form-group">
                            <label>Statoma suma eur:</label>
-                           <input type="text" name="better_bet" class="form-control" >
+                           <input type="text" name="better_bet" class="form-control" value="{{old('better_bet')}}" >
                            <small class="form-text text-muted">Lažybininko statoma suma</small>
                      </div>
                    

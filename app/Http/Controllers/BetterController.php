@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Better;
 use Illuminate\Http\Request;
 use App\Models\Horse;
+use Validator;
 
 class BetterController extends Controller
 {
@@ -41,6 +42,19 @@ class BetterController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),
+        [
+            'better_name' => ['required', 'min:3', 'max:100', 'alpha' ],
+            'better_surname' => ['required', 'min:1', 'max:150', 'alpha' ],
+            'better_bet' => ['required', 'min:1', 'numeric' ],
+           
+        ],
+
+        );
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
         $better = new Better;
         $better->name = $request->better_name;
         $better->surname = $request->better_surname;
@@ -86,6 +100,19 @@ class BetterController extends Controller
      */
     public function update(Request $request, Better $better)
     {
+        $validator = Validator::make($request->all(),
+        [
+            'better_name' => ['required', 'min:3', 'max:100', 'alpha' ],
+            'better_surname' => ['required', 'min:1', 'max:150', 'alpha' ],
+            'better_bet' => ['required', 'min:1', 'numeric' ],
+           
+        ],
+
+        );
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
         $better->name = $request->better_name;
         $better->surname = $request->better_surname;
         $better->bet = $request->better_bet;

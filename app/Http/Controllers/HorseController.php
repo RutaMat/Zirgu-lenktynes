@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Horse;
 use Illuminate\Http\Request;
-
+use Validator;
 
 class HorseController extends Controller
 {
@@ -38,6 +38,20 @@ class HorseController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),
+        [
+            'horse_name' => ['required', 'min:3', 'max:100', 'alpha'],
+            'horse_runs' => ['required', 'min:1', 'numeric'], 
+            'horse_wins' => ['required', 'min:1', 'numeric' ],
+            'horse_about' => ['required']
+        ],
+
+        );
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
+ 
         $horse = new Horse;
         $horse->name = $request->horse_name;
         $horse->runs = $request->horse_runs;
@@ -80,6 +94,20 @@ class HorseController extends Controller
      */
     public function update(Request $request, Horse $horse)
     {
+        $validator = Validator::make($request->all(),
+        [
+            'horse_name' => ['required', 'min:3', 'max:100', 'alpha'],
+            'horse_runs' => ['required', 'min:1', 'numeric'], 
+            'horse_wins' => ['required', 'min:1', 'numeric', 'lte:'.$request->horse_runs],
+            'horse_about' => ['required']
+        ],
+
+        );
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
+
         $horse->name = $request->horse_name;
         $horse->runs = $request->horse_runs;
         $horse->wins = $request->horse_wins;

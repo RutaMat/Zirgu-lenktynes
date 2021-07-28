@@ -12,17 +12,17 @@
                  <form method="POST" action="{{route('horse.update',$horse)}}">
                     <div class="form-group">
                         <label>Vardas:</label>    
-                        <input type="text" name="horse_name"  class="form-control" value="{{$horse->name}}">
+                        <input type="text" name="horse_name"  class="form-control" value="{{old('horse_name',$horse->name)}}">
                         <small class="form-text text-muted">Knygos pavadinimas.</small>
                     </div>
                     <div class="form-group">
                         <label>  Laimėtų rungtynių skaičius: </label>
-                        <input type="text" name="horse_runs"  class="form-control" value="{{$horse->runs}}">
+                        <input type="text" name="horse_runs"  class="form-control" value="{{old('horse_runs',$horse->runs)}}">
                         <small class="form-text text-muted">Arklio vardas</small>
                     </div>
                     <div class="form-group">
                         <label> Dalyvauta rungtynių skaičius:</label>
-                        <input type="text" name="horse_wins"  class="form-control" value="{{$horse->wins}}">
+                        <input type="text" name="horse_wins"  class="form-control" value="{{old('horse_wins',$horse->wins)}}">
                         <small class="form-text text-muted">Arklio laimėtos rungtynės</small>
                     </div>
                     <div class="form-group">
