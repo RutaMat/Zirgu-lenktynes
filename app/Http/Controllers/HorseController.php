@@ -97,7 +97,7 @@ class HorseController extends Controller
         $validator = Validator::make($request->all(),
         [
             'horse_name' => ['required', 'min:3', 'max:100', 'alpha'],
-            'horse_runs' => ['required', 'min:1', 'numeric'], 
+            'horse_runs' => ['required', 'min:1', 'numeric', ], 
             'horse_wins' => ['required', 'min:1', 'numeric', 'lte:'.$request->horse_runs],
             'horse_about' => ['required']
         ],

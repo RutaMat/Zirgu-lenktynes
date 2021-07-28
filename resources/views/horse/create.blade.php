@@ -18,13 +18,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Laimėtų rungtynių skaičius: </label>
+                        <label> Dalyvauta rungtynių skaičius:</label>
                         <input type="text" name="horse_runs" class="form-control" value="{{old('horse_runs')}}">
                         <small class="form-text text-muted">Arklio laimėtos rungtynės</small>
                     </div>
 
                     <div class="form-group">
-                        <label> Dalyvauta rungtynių skaičius: </label>
+                        <label>Laimėtų rungtynių skaičius: </label>
                         <input type="text" name="horse_wins" class="form-control" value="{{old('horse_wins')}}">
                         <small class="form-text text-muted">Arklio rungtynių kiekis</small>
                     </div>
