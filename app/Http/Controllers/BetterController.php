@@ -14,11 +14,23 @@ class BetterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $betters = Better::all();
-        return view('better.index', ['betters' => $betters]);
  
+        $defaultHorse = 0;
+        $horses = Horse::orderBy('name')->get();
+        $betters = Better::orderBy('bet', 'desc')->get();
+
+        //FILTRAVIMAS
+        if ($request->horse_id) {
+            $betters = Better::where('horse_id', (int)$request->horse_id)->get();
+            $defaultHorse = (int)$request->horse_id;
+        } 
+
+        return view('better.index', ['betters' => $betters, 
+        'defaultHorse' => $defaultHorse,
+        'horses' => $horses,
+    ]);
     }
 
     /**
@@ -29,7 +41,9 @@ class BetterController extends Controller
     public function create()
     {
      
-        $horses = Horse::all();
+        // $horses = Horse::all(); vietoj jo darome sort
+        
+        $horses = Horse::orderBy('name')->get();
         return view('better.create', ['horses' => $horses]);
  
     }
