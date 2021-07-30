@@ -13,12 +13,12 @@
                     <div class="form-group">
                         <label>Vardas:</label>    
                         <input type="text" name="horse_name"  class="form-control" value="{{old('horse_name',$horse->name)}}">
-                        <small class="form-text text-muted">Knygos pavadinimas.</small>
+                        <small class="form-text text-muted">Arklio vardas</small>
                     </div>
                     <div class="form-group">
                         <label> Dalyvauta rungtynių skaičius:</label>
                         <input type="text" name="horse_runs"  class="form-control" value="{{old('horse_runs',$horse->runs)}}">
-                        <small class="form-text text-muted">Arklio vardas</small>
+                        <small class="form-text text-muted">Dalyvauta rungtynių</small>
                     </div>
                     <div class="form-group">
                         <label> Laimėtų rungtynių skaičius:</label>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group">
                         <label> Aprašymas:</label>
-                        <textarea name="horse_about"  class="form-control" id="summernote"></textarea>
+                        <textarea name="horse_about"  class="form-control" id="summernote">{{$horse->about}}</textarea>
                         <small class="form-text text-muted">Komentarai apie arklį</small>
                     </div>          
                     @csrf
