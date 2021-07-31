@@ -11,7 +11,7 @@
 
                <div class="card-body">
                  @foreach ($horses as $horse)
-                <a href="{{route('horse.edit',$horse)}}">apie arklį: {{$horse->name}} {{$horse->runs}} {{$horse->wins}} {{$horse->about}}</a><br>
+                <a href="{{route('horse.edit',$horse)}}">apie arklį: {{$horse->name}} {{$horse->runs}} {{$horse->wins}} {!!$horse->about!!}</a><br>
                 <form method="POST" action="{{route('horse.destroy', $horse)}}">
                 @csrf
                 <button type="submit">Trinti</button>

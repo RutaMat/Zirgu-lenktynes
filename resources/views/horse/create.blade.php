@@ -29,9 +29,17 @@
                         <small class="form-text text-muted">Arklio laimėtos rungtynės</small>
                     </div>
                     <div class="form-group">
-                        <label> Aprašymas: </label>
-                        <textarea name="horse_about" class="form-control" id="summernote"></textarea>
-                        <small class="form-text text-muted">Komentarai apie arklį</small>
+                        <span class="other">Aprašymas:</span><br>
+                                <textarea class="description" name="about"></textarea>
+                                <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
+                                <script>
+                                    tinymce.init({
+                                        forced_root_block : "",
+                                        selector: 'textarea.description',
+                                        width: 400,
+                                        height: 250
+                                    });
+                                </script>
                     </div>
                         
                         @csrf
