@@ -10002,3 +10002,50 @@ h3 {
     border-color: #dee2e6;
   }
 }
+body {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #C0F7F7;
+  border: 5px solid #67675F;
+}
+
+.card {
+  border: 1px solid #67675F;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aqua;
+  color: black;
+}
+
+fieldset {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 10px;
+  border: 1px solid black;
+  padding: 10px;
+}
+fieldset label {
+  margin: 0 5px 0 0;
+}
+fieldset input {
+  margin: 0 15px 0 0;
+}
+
+.mygtukas {
+  float: right;
+  width: 100px;
+  background-color: #742bb4;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+.mygtukas:hover {
+  background-color: #3b3144;
+}

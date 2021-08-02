@@ -7,7 +7,7 @@
    <div class="row justify-content-center">
        <div class="col-md-8">
            <div class="card">
-               <div class="card-header">Arklio informacija</div>
+               <div class="card-header">Arklių sąrašas</div>
 
                <div class="card-body">
                  @foreach ($horses as $horse)
